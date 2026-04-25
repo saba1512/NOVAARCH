@@ -1,0 +1,164 @@
+/* Navbar.css - MOBILE FIRST */
+
+/* 1. საწყისი სტილი (Mobile) */
+.navbar {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(193, 161, 108, 0.1);
+  padding: 0 5%;
+}
+
+.nav-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: serif;
+}
+
+/* მობილური მენიუ - თავიდან დამალულია მარჯვნივ */
+.nav-menu-wrapper {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 75%;
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  transform: translateX(100%); /* აქ იმალება მობაილზე */
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  z-index: 999;
+}
+
+.nav-menu-wrapper.active {
+  transform: translateX(0%);
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+/* Hover ხაზი */
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -5px;
+  left: 0;
+  background-color: #c1a16c;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid #c1a16c;
+  color: #c1a16c; /* ტექსტი თავიდანვე ოქროსფერი იყოს უფრო უხდება */
+  padding: 12px 28px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* რბილი გადასვლა */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* ჰოვერ ეფექტი */
+.nav-btn:hover {
+  color: #1a1a1a; /* ტექსტი შავდება */
+  background-color: #c1a16c; /* ფონი ივსება ოქროსფერით */
+  box-shadow: 0 0 20px rgba(193, 161, 108, 0.3); /* ნაზი ნათება */
+  border-color: #c1a16c;
+}
+
+/* მცირე ანიმაცია დაჭერისას */
+.nav-btn:active {
+  transform: scale(0.95);
+}
+
+.burger {
+  display: block;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.burger div {
+  width: 25px;
+  height: 2px;
+  background-color: #ffffff;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+/* 2. DESKTOP STYLES (აქ გასწორდა ყველაფერი) */
+@media (min-width: 1024px) {
+  .navbar {
+    height: 90px;
+    padding: 0 8%;
+  }
+
+  .burger {
+    display: none; /* ბურგერი ქრება */
+  }
+
+  .nav-menu-wrapper {
+    /* აი ეს ნაწილია მთავარი: */
+    position: static; /* აუქმებს fixed პოზიციას */
+    transform: translateX(0); /* აბრუნებს ეკრანზე */
+    height: auto;
+    width: auto;
+    flex-direction: row; /* აწყობს ჰორიზონტალურად */
+    background-color: transparent;
+    transition: none;
+    box-shadow: none;
+    display: flex !important; /* გარანტია რომ გამოჩნდება */
+  }
+
+  .nav-links {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .nav-links li a {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,163 @@
+/* Home.css - MOBILE FIRST */
+
+/* 1. საწყისი სტილი (Mobile - Default) */
+.archi-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-color: #1a1a1a;
+  /* ნავბარი ფიქსირებულია, ამიტომ ჰეროს ზემოდან დაშორება სჭირდება */
+  padding-top: 80px; 
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  padding: 40px 5%;
+}
+
+/* წყალნიშანი მობაილზე - უფრო პატარა */
+.hero-watermark {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  font-size: 12rem;
+  font-weight: 900;
+  color: rgba(193, 161, 108, 0.04);
+  z-index: 0;
+  pointer-events: none;
+  font-family: serif;
+  white-space: nowrap;
+}
+
+/* კონტეინერი მობაილზე - ერთი სვეტი */
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  text-align: center; /* ტექსტი ცენტრში */
+  z-index: 1;
+}
+
+.subtitle {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #c1a16c;
+  margin-bottom: 15px;
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-family: serif;
+}
+
+.gold-text {
+  color: #c1a16c;
+}
+
+.hero-description {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 30px; /* ცენტრირება */
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #a0a0a0;
+}
+
+.archi-outline-btn {
+  background: transparent;
+  border: 1px solid #c1a16c;
+  color: #c1a16c;
+  padding: 14px 35px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ჰოვერ ეფექტი, რომელიც არ უნდა დაიკარგოს */
+.archi-outline-btn:hover {
+  background-color: #c1a16c;
+  color: #1a1a1a;
+  box-shadow: 0 10px 20px rgba(193, 161, 108, 0.2);
+  transform: translateY(-3px); /* ოდნავ ზემოთ იწევა ჰოვერზე */
+}
+
+/* დაჭერის ეფექტი */
+.archi-outline-btn:active {
+  transform: translateY(-1px);
+}
+
+.hero-image-box {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  box-shadow: 15px 15px 0px rgba(193, 161, 108, 0.03);
+}
+
+.hero-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 2. DESKTOP STYLES (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .archi-wrapper {
+    padding-top: 0;
+  }
+
+  .hero-section {
+    height: 100vh;
+    padding: 0 8%;
+  }
+
+  .hero-watermark {
+    left: 2%;
+    top: 55%;
+    transform: translateY(-50%);
+    font-size: clamp(15rem, 30vw, 40rem);
+    text-align: left;
+  }
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    text-align: left; /* ტექსტი მარცხნივ */
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    margin-bottom: 30px;
+  }
+
+  .hero-description {
+    margin: 0 0 45px 0; /* მარცხნივ გასწორება */
+    font-size: 1.1rem;
+  }
+
+  .hero-image-box {
+    height: 600px;
+  }
+
+  .archi-outline-btn {
+    padding: 16px 45px;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+  }
+}

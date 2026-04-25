@@ -1,0 +1,40 @@
+/* Stats.css - MOBILE FIRST */
+
+.stats-section {
+  padding: 60px 5%;
+  background-color: #151515; /* ოდნავ მუქი ვიდრე ჰერო, რომ გამოიყოს */
+  border-top: 1px solid rgba(193, 161, 108, 0.1);
+  border-bottom: 1px solid rgba(193, 161, 108, 0.1);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* მობაილზე სათითაოდ */
+  gap: 40px;
+  text-align: center;
+}
+
+.stat-item h2 {
+  font-size: 3rem;
+  font-family: serif;
+  color: #c1a16c; /* ოქროსფერი */
+  margin-bottom: 10px;
+}
+
+.stat-item p {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #888;
+}
+
+/* DESKTOP (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .stats-section {
+    padding: 80px 8%;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr); /* დესკტოპზე გვერდიგვერდ */
+  }
+}

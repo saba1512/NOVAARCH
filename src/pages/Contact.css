@@ -1,0 +1,111 @@
+/* Contact.css - MOBILE FIRST */
+
+.contact-section {
+  padding: 80px 5%;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  margin-top: 3rem;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.contact-info {
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 2.2rem;
+  font-family: serif;
+  margin: 20px 0;
+  line-height: 1.2;
+}
+
+.contact-desc {
+  color: #a0a0a0;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.info-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-item span {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+/* ფორმის სტილი */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input, 
+.contact-form textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(193, 161, 108, 0.3);
+  padding: 15px 0;
+  color: #ffffff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+  border-bottom: 1px solid #c1a16c;
+}
+
+.contact-form .archi-outline-btn {
+  align-self: flex-start;
+  margin-top: 20px;
+}
+
+/* 2. DESKTOP STYLES (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .contact-section {
+    padding: 120px 8%;
+  }
+
+  .contact-container {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 100px;
+  }
+
+  .contact-info {
+    flex: 1;
+    text-align: left;
+  }
+
+  .contact-title {
+    font-size: 3.5rem;
+  }
+
+  .contact-form {
+    flex: 1.2;
+  }
+
+  .input-group {
+    flex-direction: row;
+  }
+}

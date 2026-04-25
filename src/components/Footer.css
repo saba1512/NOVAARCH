@@ -1,0 +1,121 @@
+/* Footer.css - MOBILE FIRST */
+
+.footer {
+  background-color: #151515; /* ოდნავ უფრო მუქი ვიდრე ბოდი */
+  padding: 60px 5% 30px;
+  border-top: 1px solid rgba(193, 161, 108, 0.1);
+  color: #ffffff;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: serif;
+}
+
+.footer-tagline {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  margin-top: 15px;
+  max-width: 250px;
+}
+
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* მობაილზე ორი სვეტი */
+  gap: 30px;
+}
+
+.footer-col h4 {
+  color: #c1a16c;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col a, .footer-col p {
+  color: #a0a0a0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.footer-col a:hover {
+  color: #c1a16c;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-socials a {
+  color: #666;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-socials a:hover {
+  color: #c1a16c;
+}
+
+/* DESKTOP (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .footer {
+    padding: 100px 8% 40px;
+  }
+
+  .footer-main {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer-links-grid {
+    grid-template-columns: repeat(2, 200px); /* კონკრეტული ზომები */
+    gap: 80px;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
