@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./About.css";
+import aboutImg from "../assets/about-img.avif"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,7 +74,7 @@ function About() {
         {/* სურათის მხარე */}
         <div className="about-image">
           <img 
-            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" 
+            src={aboutImg}
             alt="Modern Architecture" 
           />
           <div className="experience-badge">

@@ -3,27 +3,17 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Projects.css";
 
+// სურათების იმპორტი (დარწმუნდი, რომ სახელები სწორია!)
+import projectImg1 from "../assets/project-img-1.avif";
+import projectImg2 from "../assets/hero-img.avif";
+import projectImg3 from "../assets/project-img-3.avif"; 
+
 gsap.registerPlugin(ScrollTrigger);
 
 const projectsData = [
-  {
-    id: 1,
-    title: "Modern Glass Villa",
-    category: "Residential",
-    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 2,
-    title: "Urban Concept Office",
-    category: "Commercial",
-    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 3,
-    title: "Minimalist Loft",
-    category: "Interior",
-    img: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80"
-  }
+  { id: 1, title: "Modern Glass Villa", category: "Residential", img: projectImg1 },
+  { id: 2, title: "Urban Concept Office", category: "Commercial", img: projectImg2 },
+  { id: 3, title: "Minimalist Loft", category: "Interior", img: projectImg3 }
 ];
 
 function Projects() {
@@ -32,27 +22,28 @@ function Projects() {
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
       
-      gsap.fromTo(".project-card", 
+      // ყველა ბარათის ანიმაცია
+      const cards = gsap.utils.toArray(".project-card");
+      
+      gsap.fromTo(cards, 
         { 
-          y: 60, 
-          opacity: 0,
-          scale: 0.9 
+          y: 100, 
+          opacity: 0 
         }, 
         { 
           y: 0, 
           opacity: 1, 
-          scale: 1,
-          duration: 1.2, 
-          stagger: 0.3, 
+          duration: 1, 
+          stagger: 0.2, 
           ease: "power2.out",
           scrollTrigger: {
-            trigger: ".projects-grid",
-            start: "top 85%",
-            toggleActions: "play none none reverse"
+            trigger: sectionRef.current, // მთლიან სექციაზე მივაბათ
+            start: "top 80%", // როცა სექციის ზედა ნაწილი ეკრანის 80%-ზეა
+            toggleActions: "play none none none",
+            onEnter: () => ScrollTrigger.refresh() // იძულებითი რეფრეში
           }
         }
       );
-
     }, sectionRef);
 
     return () => ctx.revert();
@@ -69,7 +60,7 @@ function Projects() {
         {projectsData.map((project) => (
           <div className="project-card" key={project.id}>
             <div className="project-image">
-              <img src={project.img} alt={project.title} />
+              <img src={project.img} alt={project.title} loading="lazy" />
               <div className="project-overlay">
                 <span className="project-category">{project.category}</span>
                 <h3 className="project-name">{project.title}</h3>

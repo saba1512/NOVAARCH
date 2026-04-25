@@ -8,6 +8,7 @@ import Services from "../pages/Services";
 import Blog from "../pages/Blog";
 import Testimonials from "../pages/Testimonials";
 import "../pages/Home.css";
+import HeroImg from "../assets/hero-img.avif"
 
 // ScrollTrigger-ის რეგისტრაცია
 gsap.registerPlugin(ScrollTrigger);
@@ -74,7 +75,7 @@ function Home() {
           </div>
           <div className="hero-image-box">
             <img 
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" 
+              src={HeroImg} 
               alt="Design project" 
             />
           </div>
